@@ -6,22 +6,12 @@ function App() {
   return (
     <div className="App">
       
-      <NavBar/>
+    <h1>Mi Tienda</h1>
+    <NavBar/>
 
-      <h1>Hola Mundo</h1>
-
-<TailwindCss/>
 
     </div>
   );
-}
-
-function TailwindCss() {
-  return (
-    <h2 className="text-3xl font-bold underline">
-      Hello world!
-    </h2>
-  )
 }
 
 
