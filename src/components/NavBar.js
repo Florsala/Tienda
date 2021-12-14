@@ -3,7 +3,7 @@ import React from 'react'
 const NavBar = () => {
     return (
     <nav>
-        <div className='flex-row'>
+        <div className='flex flex-row-reverse '>
          
         <div>
             <ul className='listStyle'>

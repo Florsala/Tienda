@@ -41,21 +41,25 @@
   }
 }
 
-.flex-row{
+/* .flex-row{
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
+} */
 
 .listStyle{
   list-style: none;
   background-color: black;
   color:white;
   text-decoration: none;
+  display: flex;
+  padding: 10px;
+  
 
 }
 
 .link{
   text-decoration: none;
     color: white;
+    padding: 8px;
 }
