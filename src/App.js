@@ -9,8 +9,24 @@ function App() {
       <NavBar/>
 
       <h1>Hola Mundo</h1>
+
+<TailwindCss/>
+
     </div>
   );
 }
+
+function TailwindCss() {
+  return (
+    <h2 className="text-3xl font-bold underline">
+      Hello world!
+    </h2>
+  )
+}
+
+
+
+
+
 
 export default App;
