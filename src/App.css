@@ -51,5 +51,11 @@
   list-style: none;
   background-color: black;
   color:white;
+  text-decoration: none;
 
+}
+
+.link{
+  text-decoration: none;
+    color: white;
 }

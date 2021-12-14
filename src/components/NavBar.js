@@ -4,13 +4,14 @@ const NavBar = () => {
     return (
     <nav>
         <div className='flex-row'>
-         <a className='text-orange'>HOME</a> 
-
+         
         <div>
             <ul className='listStyle'>
-                <li>Catalogo</li>
-                <li>Servicios</li>
-                <li>Tiendas</li>
+            <li><a className='text-orange'>HOME</a></li>
+
+                <li><a className='link' href="#">Catalogo</a></li>
+                <li><a className='link' href="#">Servicios</a></li>
+                 <li><a className='link' href="#">Tiendas</a></li>
 
             </ul>
             
