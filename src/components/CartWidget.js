@@ -1,6 +1,6 @@
 
-import cart from './img/shopping-cart-solid.svg';
 import React from 'react'
+import cart from './cart.svg';
 
 const CartWidget = () => {
     return (
