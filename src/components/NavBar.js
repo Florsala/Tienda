@@ -9,11 +9,11 @@ const NavBar = () => {
          
         <div>
             <ul className='listStyle'>
-            <li><a className='text-orange'>HOME</a></li>
+            <li><a href="#top" className='link'>HOME</a></li>
 
-                <li><a className='link' href="#">Catalogo</a></li>
-                <li><a className='link' href="#">Servicios</a></li>
-                 <li><a className='link' href="#">Tiendas</a></li>
+                <li><a className='link' href="#top">Catalogo</a></li>
+                <li><a className='link' href="#top">Servicios</a></li>
+                 <li><a className='link' href="#top">Tiendas</a></li>
   <CartWidget/>
             </ul>
 

@@ -5,7 +5,7 @@ import cart from './cart.svg';
 const CartWidget = () => {
     return (
         <div>
-           <img className='imgCart' src={cart} />
+           <img className='imgCart' src={cart} alt='cart'/>
 
 
             
