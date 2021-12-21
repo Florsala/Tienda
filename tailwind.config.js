@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx}",],
+  content: ["./src/components/NavBar.js",],
   theme: {
     colors: {
       'blue': '#1fb6ff',
