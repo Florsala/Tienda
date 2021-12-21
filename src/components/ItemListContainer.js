@@ -1,5 +1,5 @@
 import React from 'react'
-import itemCount from './itemCount'
+import ItemCount from './itemCount'
 
 const ItemListContainer = (props) => {
     return (
@@ -8,7 +8,7 @@ const ItemListContainer = (props) => {
             
             
         <div>
-            <itemCount stock="20" initial="1" />
+            <ItemCount stock="3"  />
             
         </div>
 
