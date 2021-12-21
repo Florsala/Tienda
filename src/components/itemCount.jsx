@@ -58,8 +58,9 @@ const ItemCount = ({stock}) => {
                 -
 
                 </button>
-
-                <button onClick = {() =>  console.log("Agregado al carrito") } > Agregar </button>
+                <div><button onClick = {() =>  console.log("Agregado al carrito") } > Agregar </button>
+                </div>
+                
         
             
         </div>
