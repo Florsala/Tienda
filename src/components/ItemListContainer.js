@@ -1,14 +1,18 @@
 import React from 'react'
-import ItemCount from './itemCount'
+import ItemList from './ItemList'
 
-const ItemListContainer = (props) => {
+
+
+
+const ItemListContainer = () => {
     return (
         <div>
-            <h3> {props.greeting}</h3>
+            <ItemList/>
             
             
         <div>
-            <ItemCount stock="3"  />
+            
+           
             
         </div>
 

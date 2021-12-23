@@ -1,4 +1,5 @@
 import React , {useState} from 'react'
+import Button from '@mui/material/Button';
 
 
 
@@ -28,27 +29,27 @@ const substract = () => {
 
     return (
         <div>
-             <button onClick = {onAdd}>
+             <Button variant="contained" onClick = {onAdd}>
 
                 +
 
-                </button>            
+                </Button>            
 
 
                 <h1>cantidad: {counter}</h1>
 
-                <button onClick = {substract } >
+                <Button variant="contained" onClick = {substract } >
                     -
 
-                </button>
-                <div><button onClick = {() =>{  
+                </Button>
+                <div><Button variant="contained" onClick = {() =>{  
                     if (counter === 1) {
                          console.log( `${counter} item agregado al carrito`) 
                     } else {
                         console.log(`${counter} items agregados al carrito`);
                     }
                     
-                   } }> Agregar </button>
+                   } }> Agregar </Button>
                 </div>
                 
         
