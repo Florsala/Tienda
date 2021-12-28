@@ -1,5 +1,6 @@
 import React , {useState} from 'react'
 import Button from '@mui/material/Button';
+import { Box } from '@mui/system';
 
 
 
@@ -29,27 +30,25 @@ const substract = () => {
 
     return (
         <div>
-             <Button variant="contained" onClick = {onAdd}>
-
-                +
-
-                </Button>            
+            <Box sx={{ display: 'inline-flex', margin:2 }}>
+                  <Button variant="outlined" size= "x-small" onClick = {substract }> - </Button>     
 
 
-                <h1>cantidad: {counter}</h1>
+                <p >cantidad de pasajeros: {counter}</p>
+                    <Button variant="outlined" size= "small" onClick = {onAdd}>+ </Button>  
+               
+            </Box>
 
-                <Button variant="contained" onClick = {substract } >
-                    -
-
-                </Button>
-                <div><Button variant="contained" onClick = {() =>{  
+                <div>
+                    <Button variant="outlined" size= "small" pb={3} onClick = {() =>{  
                     if (counter === 1) {
                          console.log( `${counter} item agregado al carrito`) 
                     } else {
                         console.log(`${counter} items agregados al carrito`);
                     }
                     
-                   } }> Agregar </Button>
+                   } }> Agregar 
+                   </Button>
                 </div>
                 
         

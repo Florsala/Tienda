@@ -16,19 +16,39 @@ const getItems = () =>{
     const products = [
     {Id:"001",
      title: "tour1",
-     price: "100",
+     price: "$ 10.500",
      img: "url"
     },
     {Id:"002",
     title: "tour2",
-    price: "1000",
+    price: "$ 10.000",
     img: "url"
-   }]
+   },
+   {Id:"003",
+   title: "tour3",
+   price: "$ 10.500",
+   img: "url"
+  },
+  {Id:"004",
+  title: "tour4",
+  price: "$ 10.000",
+  img: "url"
+ },
+ {Id:"005",
+ title: "tour5",
+ price: "$ 10.500",
+ img: "url"
+},
+{Id:"006",
+title: "tour6",
+price: "$ 10.000",
+img: "url"
+}]
 
    setTimeout( () => {
     res(products)  
 }, 2000)
-    
+   
 
     })
     getnewItems.then( res => setProd(res))
@@ -36,15 +56,16 @@ const getItems = () =>{
 
 
 
-
- 
-
     return (
         <div>
-            <h1>Catálogo</h1>
+            
         {products.map ( p => 
 
-             <Item product = {p}></Item>
+             <Item 
+             key= {p.title}
+             product = {p}>
+
+             </Item>
         )}
            
             
