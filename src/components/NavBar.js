@@ -13,9 +13,9 @@ const NavBar = () => {
 
                 
             <li><Link to="/">HOME</Link></li> {" "}
-            <li> <Link to= "/Catalogo">Catalogo</Link></li> {" "}
+            <li> <Link to= "/Excursiones">Catalogo</Link></li> {" "}
             <li> <Link to= "/Servicios">Servicios</Link></li>
-            <li> <Link to= "/Tiendas">Tiendas</Link></li>
+            <li> <Link to= "/Contacto">Tiendas</Link></li>
                 
   <CartWidget/>
             </ul>

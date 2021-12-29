@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import Home from './components/Home';
+import ItemDetail from "./components/ItemDetail";
 
 function App() {
   return (
@@ -14,18 +15,20 @@ function App() {
 
 <Routes>
 
-  <Route index element={<Home/>}/>
-  <Route path="/products" element= {<ItemListContainer/>}></Route>
+<Route index element={<Home/>}/>
+
+<Route path="/ItemDetail/:Id" element= {<ItemDetail/>}>
+
+</Route>
+
 </Routes>
 
     <div className="App">
       
-    <h1>Mi Tienda</h1>
-    <NavBar/>
-
     
+  <NavBar/>
 
-    <ItemListContainer/> 
+  <ItemListContainer/> 
 
     
 

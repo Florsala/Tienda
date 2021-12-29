@@ -14,35 +14,41 @@ const getItems = () =>{
 
        
     const products = [
-    {Id:"001",
+    {id:"001",
      title: "tour1",
      price: "$ 10.500",
-     img: "url"
+     img: "/img/andes.jpg",
+     stock: "10"
     },
-    {Id:"002",
+    {id:"002",
     title: "tour2",
     price: "$ 10.000",
-    img: "url"
+    img: "/img/pasarela.jpg",
+    stock: "10"
    },
-   {Id:"003",
+   {id:"003",
    title: "tour3",
    price: "$ 10.500",
-   img: "url"
+   img: "/img/Penguin.jpg",
+   stock: "10"
   },
-  {Id:"004",
+  {id:"004",
   title: "tour4",
   price: "$ 10.000",
-  img: "url"
+  img: "/img/PNtdf.jpg",
+  stock: "10"
  },
- {Id:"005",
+ {id:"005",
  title: "tour5",
  price: "$ 10.500",
- img: "url"
+ img: "/img/andes.jpg",
+ stock: "10"
 },
-{Id:"006",
+{id:"006",
 title: "tour6",
 price: "$ 10.000",
-img: "url"
+img: "/img/andes.jpg",
+stock: "10"
 }]
 
    setTimeout( () => {

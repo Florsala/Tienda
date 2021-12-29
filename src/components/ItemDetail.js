@@ -1,3 +1,4 @@
+
 import React from 'react'
 import ItemCount from './itemCount'
 import Card from '@mui/material/Card';
@@ -9,9 +10,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 
-
-
-const Item = ({product }) => {
+const ItemDetail = (product) => {
     return (
 
 <Box sx={{ display: 'inline-flex'}} m={3} elevation={20}>
@@ -30,14 +29,12 @@ const Item = ({product }) => {
           {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-          Fuga natus repellat deserunt delectus saepe sapiente inventore dignissimos. 
-          Est iusto porro itaque consequuntur vero reprehenderit, modi animi deleniti, officia molestiae dolore!
+          {product.desc}
           </Typography>
         </CardContent>
           <CardActions >
             <Button size="small">Comprar</Button>
-            <Button size="small" /* onClick={} */>Más info</Button>
+            <Button size="small">Más info</Button>
             <Typography  variant="body3" color="text.primary">{product.price}</Typography>
           </CardActions>
 
@@ -49,8 +46,9 @@ const Item = ({product }) => {
     </Card>
 
         </Box>    
+
+        
     )
 }
 
-
-export default Item
+export default ItemDetail
