@@ -56,3 +56,8 @@ a {
 .imgCart{
   height: 20px;
 }
+
+
+.active{
+  color: orange;
+}
