@@ -1,9 +1,9 @@
 export default [
   { id: 1, 
-    name: "Navegaciones", 
+    name: "*Navegaciones", 
     address: "/category/Navegaciones" },
 
   { id: 2, 
-    name: "Terrestres", 
+    name: "*Terrestres", 
     address: "/category/Terrestres" },
 ];

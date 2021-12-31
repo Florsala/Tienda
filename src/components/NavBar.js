@@ -34,7 +34,7 @@ const NavBar = () => {
                   <div key= {c.id}>
 
                     <NavLink to = {c.address}
-                    activeClassName="active"
+                    activeclassname="active"
                     >
                       {c.name}
                     </NavLink>
