@@ -61,3 +61,10 @@ a {
 .active{
   color: orange;
 }
+
+
+//Botones Cantidad de pax
+
+.button{
+ width: 40px;
+}

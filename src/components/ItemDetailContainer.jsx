@@ -4,8 +4,11 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import products from "../data/products"
 
+
 const ItemDetailContainer = () => {
+
   const [items, setItems] = useState({});
+
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
@@ -17,19 +20,16 @@ const ItemDetailContainer = () => {
     
     setTimeout(() => {
           const filter = products.find((product) => product.id === id);
-    /* setItems(filter); */
-
+    
       resolve(filter);
     }, 2000);
   });
-  /*   getItem();
-  }, [id]); */
-
-
+  
 
   getItem
   
-  .then((resolve) => {setItems(resolve);
+  .then((resolve) => {
+    setItems(resolve);
 })
 .finally(() => setLoading(false));
   },[id]);

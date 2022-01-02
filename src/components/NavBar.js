@@ -19,6 +19,23 @@ const NavBar = () => {
               
               <Link to="/Excursiones">Excursiones</Link>
             </li>
+            <div>
+              {Categories.map ((category) => {
+                return (
+                  <div key= {category.id}>
+
+                    <NavLink to = {category.address}
+                    activeclassname="active"
+                    >
+                      {category.name}
+                    </NavLink>
+                
+                 </div>
+
+                )
+              })}
+
+            </div>
             <li>
              
               <Link to="/Servicios">Servicios</Link>
@@ -28,23 +45,7 @@ const NavBar = () => {
               <Link to="/Contacto">Contacto</Link>
             </li>
 
-            <div>
-              {Categories.map ((c) => {
-                return (
-                  <div key= {c.id}>
-
-                    <NavLink to = {c.address}
-                    activeclassname="active"
-                    >
-                      {c.name}
-                    </NavLink>
-                
-                 </div>
-
-                )
-              })}
-
-            </div>
+           
 
             <CartWidget />
           </ul>

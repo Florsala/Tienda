@@ -8,34 +8,51 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({
+  id,
+  title,
+  price,
+  category,
+  img,
+  description,
+  duration,
+  include,
+  pax,
+}) => {
   return (
-    <Box sx={{ display: "inline-flex" }} m={3} elevation={20}>
-      <Card sx={{ maxWidth: 345, paddingBottom: 2, boxShadow: 3 }}>
+    <Box sx={{ display: "inline-flex" }} m={3} elevation={10}>
+      <Card sx={{ maxWidth: 500, paddingBottom: 2, boxShadow: 3 }}>
         <CardMedia
           component="img"
-          height="140"
-          image={product.img}
-          price={product.price}
-          alt="Tour"
+          height="450"
+          image={img}
+          price={price}
+          alt={`${id}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {product.title}
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {product.desc}
+            {description}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {include}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {duration}
           </Typography>
         </CardContent>
+        <ItemCount stock={pax} />
         <CardActions>
-          <Button size="small">Comprar</Button>
-          <Button size="small">Más info</Button>
-          <Typography variant="body3" color="text.primary">
-            {product.price}
+          <Typography variant="body3" m={3} color="text.primary">
+            {` Tarifa por pasajero $${price}`}
           </Typography>
-        </CardActions>
 
-        <ItemCount stock="10" />
+          <Button variant="contained" m={3} size="small">
+            Comprar
+          </Button>
+        </CardActions>
       </Card>
     </Box>
   );

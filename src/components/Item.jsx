@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+
 import { Link } from "react-router-dom";
 
 
@@ -14,8 +15,8 @@ import { Link } from "react-router-dom";
 const Item = ({ id, title, price, img, description }) => {
   return (
 
-    <Link to= {`/product/${id}`}>
-    <Box sx={{ display: "inline-flex" }} m={3} elevation={20}>
+    <Link to= {`/tour/${id}`}>
+    <Box sx={{ display: 'inline-flex', flexDirection: 'row', flexWrap: 'wrap' , justifyContent:'space-evenly' }} m={3} elevation={20}>
       <Card sx={{ maxWidth: 345, paddingBottom: 2, boxShadow: 3 }}>
         <CardMedia
           component="img"
@@ -40,7 +41,6 @@ const Item = ({ id, title, price, img, description }) => {
           </Typography>
         </CardActions>
 
-       {/*  <ItemCount stock="10" /> */}
       </Card>
     </Box>
 
