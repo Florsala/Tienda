@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import products from "../data/products";
+import Box from "@mui/material/Box";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -33,9 +34,11 @@ export const ItemListContainer = () => {
   return loading ? (
     <h3>cargando...</h3>
   ) : (
-    <div>
-      <ItemList items={items} />
-    </div>
+      <Box mt={10} sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
+        <ItemList items={items} />
+      </Box>
+      
+    
   );
 };
 

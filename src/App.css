@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 
 *{
   margin: 0;
@@ -34,7 +35,7 @@
   justify-content: center;
 } */
 
-.listStyle{
+/* .listStyle{
   list-style: none;
   background-color: black;
   color:white;
@@ -43,7 +44,7 @@
   padding: 10px;
   
 
-}
+} */
 
 
 
@@ -55,8 +56,12 @@ a {
 
 .imgCart{
   height: 20px;
+  color: white;
 }
 
+.bi-cart-fill{
+  color:white;
+}
 
 .active{
   color: orange;

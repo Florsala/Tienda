@@ -3,22 +3,22 @@ import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, Add }) => {
   const [counter, setCounter] = useState(1);
 
   const onAdd = () => {
     if (counter < stock) {
-      {
+      
         setCounter(counter + 1);
-      }
+      
     }
   };
 
   const substract = () => {
     if (counter > 1) {
-      {
+      
         setCounter(counter - 1);
-      }
+      
     }
   };
 
@@ -40,13 +40,14 @@ const ItemCount = ({ stock }) => {
         sx={{ display: "inline" }}
         variant="outlined"
         size="small"
+        color="primary"
         pb={3}
-        onClick={() => {
-          if (counter === 1) {
+        onClick={() => { Add()
+          /* if (counter === 1) {
             console.log(`${counter} item agregado al carrito`);
           } else {
             console.log(`${counter} items agregados al carrito`);
-          }
+          } */
         }}
       >
         Agregar

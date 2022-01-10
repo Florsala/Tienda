@@ -1,11 +1,15 @@
 
 import React from 'react'
-import cart from './cart.svg';
+
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 const CartWidget = () => {
     return (
         <div>
-           <img className='imgCart' src={cart} alt='cart'/>
+         
+           <LocalMallIcon
+           color='white'
+           />
 
 
             

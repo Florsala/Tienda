@@ -15,12 +15,13 @@ import { Link } from "react-router-dom";
 const Item = ({ id, title, price, img, description }) => {
   return (
 
-    <Link to= {`/tour/${id}`}>
-    <Box sx={{ display: 'inline-flex', flexDirection: 'row', flexWrap: 'wrap' , justifyContent:'space-evenly' }} m={3} elevation={20}>
-      <Card sx={{ maxWidth: 345, paddingBottom: 2, boxShadow: 3 }}>
+    
+
+    <Box  m={3} elevation={20} mt={10}>
+      <Card sx={{ width: 350, paddingBottom: 2, boxShadow: 3 }}>
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={img}
           price={price}
           alt="Tour"
@@ -35,16 +36,19 @@ const Item = ({ id, title, price, img, description }) => {
         </CardContent>
         <CardActions>
           <Button size="small">Comprar</Button>
+
+          <Link to= {`/tour/${id}`}>
           <Button size="small" >Más info</Button>
-          <Typography variant="body3" color="text.primary">
-            {price}
+          </Link>
+          <Typography color="text.primary" m={3}>
+            AR$ {price}
           </Typography>
         </CardActions>
 
       </Card>
     </Box>
 
-    </Link>
+    
   );
 };
 
