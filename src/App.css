@@ -73,3 +73,29 @@ a {
 .button{
  width: 40px;
 }
+
+.FlexCards{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  white-space: nowrap;
+
+
+
+}
+
+
+.MallIcon{
+  margin-top: 10px;
+  color: white;
+}
+
+.cartNumber{
+  font-size: 10px;
+}
+
+.fotoInicio{
+  margin: 100px ;
+  height: 600px;
+}

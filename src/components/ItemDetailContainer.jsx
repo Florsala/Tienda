@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import products from "../data/products"
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 
 const ItemDetailContainer = () => {
@@ -22,7 +24,7 @@ const ItemDetailContainer = () => {
           const filter = products.find((product) => product.id === id);
     
       resolve(filter);
-    }, 2000);
+    }, 1200);
   });
   
 
@@ -36,7 +38,15 @@ const ItemDetailContainer = () => {
 
 
   return loading ?
-  <h3>cargando...</h3>
+  <>
+    <h2>cargando...</h2>
+      <Backdrop
+        sx={{ color: "#e8b610", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </>
   :
   
     <div>

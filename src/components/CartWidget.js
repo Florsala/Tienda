@@ -1,22 +1,25 @@
+import React, { useContext } from "react";
 
-import React from 'react'
-
-import LocalMallIcon from '@mui/icons-material/LocalMall';
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { Link } from "react-router-dom";
+import cartContext from "../context/cartContext";
 
 const CartWidget = () => {
-    return (
-        <div>
-         
-           <LocalMallIcon
-           color='white'
-           />
+
+    const {cart, total} = useContext(cartContext);
 
 
-            
-        </div>
-    )
-}
+  return (
+    <div className="MallIcon">
+      <Link to={"/Cart"}>
+        <LocalMallIcon color="white" />
+        <span className="cartNumber">
+            ({total})
+           
+        </span>
+      </Link>
+    </div>
+  );
+};
 
-export default  CartWidget
-
-
+export default CartWidget;

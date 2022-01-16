@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { makeStyles } from "@mui/styles";
 import ItemCount from "./itemCount";
 import Card from "@mui/material/Card";
@@ -9,6 +9,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
+import cartContext from "../context/cartContext";
+
+
 
 const useStyles = makeStyles({
   boxContainer: {
@@ -38,9 +41,22 @@ const ItemDetail = ({
 
 
 
+  const {cart, addItem,isInCart} = useContext(cartContext);
+
+
+
+
 const Add = () => {
   setAddToCart(true)
+  
+  addItem(id,title, price)
+  
+
+
+
 }
+
+
 
 useEffect(() => {
   console.log(addToCart, 'agregado');
@@ -74,13 +90,14 @@ useEffect(() => {
         </CardContent>
 
         {!addToCart &&
-        <ItemCount stock={pax} Add={Add}/>
+        <ItemCount stock={pax} Add={Add}/> //funcion agregar carrito
 
         
 
       }
 
       {addToCart &&
+      <>
       <Link to="/cart" >
         <Button color="secondary" variant="contained" m={5} size="small">
         Finalizar Compra
@@ -88,6 +105,15 @@ useEffect(() => {
           </Button>
         
         </Link>
+
+         <Link to= "/Excursiones"> 
+         
+         <Button>
+            Volver
+          </Button>
+          
+          </Link>
+          </>
       }
       
       

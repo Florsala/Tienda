@@ -17,8 +17,14 @@ const Item = ({ id, title, price, img, description }) => {
 
     
 
-    <Box  m={3} elevation={20} mt={10}>
-      <Card sx={{ width: 350, paddingBottom: 2, boxShadow: 3 }}>
+    <Box sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      
+     
+    }} m={4} elevation={20} mt={10}>
+    
+      <Card  sx={{ width: 380, paddingBottom: 2, boxShadow: 3 }}>
         <CardMedia
           component="img"
           height="200"
@@ -35,9 +41,10 @@ const Item = ({ id, title, price, img, description }) => {
           </Typography>
         </CardContent>
         <CardActions>
+          <Link to= {`/tour/${id}`}>
           <Button size="small">Comprar</Button>
 
-          <Link to= {`/tour/${id}`}>
+          
           <Button size="small" >Más info</Button>
           </Link>
           <Typography color="text.primary" m={3}>

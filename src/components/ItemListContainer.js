@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import products from "../data/products";
-import Box from "@mui/material/Box";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -21,7 +22,7 @@ export const ItemListContainer = () => {
           : products;
 
         resolve(dataId);
-      }, 1000);
+      }, 1500);
     });
 
     getItems
@@ -32,13 +33,19 @@ export const ItemListContainer = () => {
   }, [CategoryId]);
 
   return loading ? (
-    <h3>cargando...</h3>
+    <>
+    <h2>cargando...</h2>
+      <Backdrop
+        sx={{ color: "#e8b610", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </>
   ) : (
-      <Box mt={10} sx={{ display: 'flex', flexWrap: 'wrap', justifyContent:'center' }}>
-        <ItemList items={items} />
-      </Box>
-      
-    
+    <div>
+      <ItemList items={items} />
+    </div>
   );
 };
 

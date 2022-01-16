@@ -4,9 +4,10 @@ import Item from "./Item";
  const ItemList = ({items}) => {
 
   return (
-    <div>
+    <div className='FlexCards'>
       {items.map( (i) => 
-      (<Item {...i} key= {i.id}/> ))
+      (<div >
+      <Item {...i} key= {i.id}/> </div>))
 
       }
       

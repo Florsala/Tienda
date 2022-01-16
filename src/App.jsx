@@ -7,32 +7,30 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import Cart from "./components/Cart";
-
-
+import Home from "./components/Home";
+import {CartProvider} from "./context/cartContext";
 
 function App() {
   return (
-<ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <CartProvider>
+          <NavBar />
 
-    <BrowserRouter>
-      <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-      <Routes>
-        
+            <Route path="/Excursiones" element={<ItemListContainer />} />
 
-        <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:CategoryId" element={<ItemListContainer />}
+            />
 
-        <Route path="/category/:CategoryId" element={<ItemListContainer />} />
+            <Route path="/tour/:id" element={<ItemDetailContainer />} />
 
-        <Route path="/tour/:id" element={<ItemDetailContainer />}/>
-
-        <Route path= "/cart" element={<Cart/>}/>
-
-       
-      </Routes>
-
-    </BrowserRouter>
-
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </CartProvider>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

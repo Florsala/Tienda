@@ -1,9 +1,10 @@
 import img1 from "../img/sign.jpg";
 import img2 from "../img/pasarela.jpg";
 import img3 from "../img/Penguin.jpg";
-import img4 from "../img/trekk.jpg";
+import img4 from "../img/trekking.jpg";
 import img5 from "../img/lobos.jpg";
 import img6 from "../img/andes.jpg";
+import img7 from "../img/heli2.jpg";
 
 export default [
   {
@@ -56,10 +57,10 @@ export default [
   {
     id: "005",
     title: "Navegación Isla de Lobos",
-    price: 12000,
+    price: 5200,
     category: "Navegaciones",
     img: img5,
-    description: "lorem ipsum",
+    description: "Faro Les Éclaireurs + Isla de Pajaros",
     duration: "Duración del tour: 6 horas",
     include: "Snack + bebidas",
     pax: 15,
@@ -67,14 +68,15 @@ export default [
   },
   {
     id: "006",
-    title: "tour6",
-    price: 12000,
-    category: "Navegaciones",
-    img: img6,
-    description: "lorem ipsum",
-    duration: "Duración del tour: 6 horas",
-    include: "Snack + bebidas",
-    pax: 15,
+    title: "Heli Sobrevuelo",
+    price: 40000,
+    category: "Terrestres",
+    img: img7,
+    description: "Sobrevuelo por los Andes fueguinos,descenso en la montaña",
+    
+    duration: "Duración del tour: 45 min.",
+    include: "Brindis",
+    pax: 3,
 
   },
 ];

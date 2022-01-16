@@ -4,6 +4,9 @@ import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 
 const ItemCount = ({ stock, Add }) => {
+
+ 
+
   const [counter, setCounter] = useState(1);
 
   const onAdd = () => {
