@@ -16,7 +16,13 @@ const Cart = () => {
 
       {cart.map((i) => (
         <>
-          <div key={i}> {i}</div>
+          <div key={i.id}>
+            <h5>{i.title}: {i.price}</h5>
+            <p>Cantidad: {i.quantity}</p>
+
+          
+          
+          </div>
           <Button
             onClick={() => {
               removeItem(i);
