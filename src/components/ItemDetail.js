@@ -49,7 +49,7 @@ const ItemDetail = ({
 const Add = () => {
   setAddToCart(true)
   
-  addItem(id,title, price)
+  addItem(id,title, price);
   
 
 

@@ -1,4 +1,4 @@
-import { createContext,  useState } from "react";
+import { createContext,  useEffect,  useState } from "react";
 
 
 const cartContext = createContext();
@@ -8,14 +8,22 @@ const CartProvider = ({children}) =>{
 
     const [cart, setCart] = useState([])
 
+useEffect(() => {
+    console.log('products', cart);
+    
+}, [cart])
 
 
-
-const addItem = (id,title, price) =>{
-    setCart ((prevCart) =>{
-        return prevCart.concat(title, price)
-
-    })
+const addItem = (id,title, price,quantity) =>{
+    setCart([
+        ...cart,
+        {
+          id: id,
+          price: price,
+          title: title,
+          quantity
+        }
+      ]);
 
 }
 
