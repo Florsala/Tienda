@@ -21,7 +21,7 @@ const addItem = (id,title, price,quantity) =>{
           id: id,
           price: price,
           title: title,
-          quantity
+          quantity: quantity
         }
       ]);
 

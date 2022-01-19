@@ -11,8 +11,6 @@ import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import cartContext from "../context/cartContext";
 
-
-
 const useStyles = makeStyles({
   boxContainer: {
     display: "flex",
@@ -21,8 +19,6 @@ const useStyles = makeStyles({
     marginBottom: 100,
   },
 });
-
-
 
 const ItemDetail = ({
   id,
@@ -39,30 +35,26 @@ const ItemDetail = ({
 
   const [addToCart, setAddToCart] = useState(false);
 
+  const { cart, addItem, isInCart } = useContext(cartContext);
 
-
-  const {cart, addItem,isInCart} = useContext(cartContext);
-
-
-
-
-const Add = () => {
-  setAddToCart(true)
   
-  addItem(id,title, price);
-  
+  const Add = () => {
+
+if (!isInCart) {
+  setAddToCart(true);
+
+    addItem(id, title, price);
+} else
 
 
+alert ('este producto ya esta en tu carrito')
+          
+    
+  };
 
-}
-
-
-
-useEffect(() => {
-  console.log(addToCart, 'agregado');
-
-  }, [addToCart])
-
+  useEffect(() => {
+    console.log(addToCart, "agregado");
+  }, [addToCart]);
 
   return (
     <Box className={classes.boxContainer}>
@@ -89,46 +81,36 @@ useEffect(() => {
           </Typography>
         </CardContent>
 
-        {!addToCart &&
-        <ItemCount stock={pax} Add={Add}/> //funcion agregar carrito
+        {
+          !addToCart && <ItemCount stock={pax} Add={Add} /> //funcion agregar carrito
+        }
 
-        
+        {addToCart && (
+          <>
+            <Link to="/cart">
+              <Button color="secondary" variant="contained" m={5} size="small">
+                Finalizar Compra
+              </Button>
+            </Link>
 
-      }
-
-      {addToCart &&
-      <>
-      <Link to="/cart" >
-        <Button color="secondary" variant="contained" m={5} size="small">
-        Finalizar Compra
-
-          </Button>
-        
-        </Link>
-
-         <Link to= "/Excursiones"> 
-         
-         <Button>
-            Volver
-          </Button>
-          
-          </Link>
+            <Link to="/Excursiones">
+              <Button>Volver</Button>
+            </Link>
           </>
-      }
-      
-      
+        )}
 
-        
         <CardActions>
-          <Typography  m={3} color="text.primary">
-           Tarifa por pasajero $ {price}
+          <Typography m={3} color="text.primary">
+            Tarifa por pasajero $ {price}
           </Typography>
-
-          
         </CardActions>
+        
+        <Link to="/Excursiones">
+            <Button color="secondary" variant="contained" m={5} size="small">
+              Volver al inicio
+            </Button>
+          </Link>
       </Card>
-
-      
     </Box>
   );
 };

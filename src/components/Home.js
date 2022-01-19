@@ -4,16 +4,12 @@ import ImageListItem from '@mui/material/ImageListItem';
 import img1 from "../img/esmeralda.jpg";
 import img2 from "../img/trekk2.jpg";
 import img3 from "../img/Carbajal.jpg";
-import img4 from "../img/fotoBeagle.jpg";
+
 
 const Home = () => {
     return (
         <>
-        <img className='fotoInicio'
-            src= {img4}
-                     
-            loading="lazy"
-          />
+        
 
 
         <ImageList sx={{ width: 800, height: 600 }} variant="woven" cols={3} gap={8}>
