@@ -4,15 +4,16 @@ import ImageListItem from '@mui/material/ImageListItem';
 import img1 from "../img/esmeralda.jpg";
 import img2 from "../img/trekk2.jpg";
 import img3 from "../img/Carbajal.jpg";
+import { Typography } from '@mui/material';
 
 
 const Home = () => {
     return (
         <>
         
+        <Typography variant="h3" color="text.secondary" m={10}> Tu tienda de viajes en Ushuaia</Typography>
 
-
-        <ImageList sx={{ width: 800, height: 600 }} variant="woven" cols={3} gap={8}>
+        <ImageList sx={{ width: 700, height: 500 }} variant="woven" cols={3} gap={8} m={12}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
@@ -24,6 +25,8 @@ const Home = () => {
         </ImageListItem>
       ))}
     </ImageList>
+
+    
 
     </>
   );

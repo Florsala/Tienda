@@ -71,7 +71,7 @@ a {
 //Botones Cantidad de pax
 
 .button{
- width: 40px;
+ width: 20px;
 }
 
 .FlexCards{
@@ -96,6 +96,6 @@ a {
 }
 
 .fotoInicio{
-  margin: 30px ;
-  height: 600px;
+  margin: 20px ;
+  height: 500px;
 }

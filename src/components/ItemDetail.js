@@ -40,14 +40,14 @@ const ItemDetail = ({
   
   const Add = () => {
 
-if (!isInCart) {
+//if (!isInCart) {
   setAddToCart(true);
 
     addItem(id, title, price);
-} else
+//} else
 
 
-alert ('este producto ya esta en tu carrito')
+//alert ('este producto ya esta en tu carrito')
           
     
   };

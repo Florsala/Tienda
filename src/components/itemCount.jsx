@@ -2,32 +2,26 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
+import Counter from "./Counter";
 
-const ItemCount = ({ stock, Add }) => {
-
- 
-
+const ItemCount = ({ Add, stock }) => {
   const [counter, setCounter] = useState(1);
 
   const onAdd = () => {
     if (counter < stock) {
-      
-        setCounter(counter + 1);
-      
+      setCounter(counter + 1);
     }
   };
 
   const substract = () => {
     if (counter > 1) {
-      
-        setCounter(counter - 1);
-      
+      setCounter(counter - 1);
     }
   };
 
   return (
     <div>
-      <Box sx={{ display: "inline-flex" }} m={3}>
+      {/*  <Box sx={{ display: "inline-flex" }} m={3}>
         <Button variant="outlined" size="x-small" className="button" onClick={substract}>
          
           -
@@ -37,15 +31,19 @@ const ItemCount = ({ stock, Add }) => {
         <Button variant="outlined" size="small" className="button" onClick={onAdd}>
           +
         </Button>
-      </Box>
+      </Box> */}
+
+      <Counter onAdd={onAdd} substract={substract} initial={counter} />
 
       <Button
         sx={{ display: "inline" }}
         variant="outlined"
         size="small"
         color="primary"
+        
         pb={3}
-        onClick={() => { Add()
+        onClick={() => {
+          Add();
           /* if (counter === 1) {
             console.log(`${counter} item agregado al carrito`);
           } else {

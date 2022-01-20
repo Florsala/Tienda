@@ -23,7 +23,7 @@ const useStyles = makeStyles(  ({
   link: {
     textDecoration: "none",
     color: "white",
-    fontSize: "20px",
+    fontSize: "18px",
   },
 }));
 
@@ -63,9 +63,9 @@ const NavBar = () => {
                   })}
                 </div>
 
-                <Link to="/Servicios">Servicios</Link>
+                <Link to="/Antartida" className={classes.link}>Antártida</Link>
 
-                <Link to="/Contacto">Contacto</Link>
+                <Link to="/Contacto" className={classes.link}>Contacto</Link>
 
                 <CartWidget />
               </div>

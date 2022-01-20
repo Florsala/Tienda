@@ -9,6 +9,7 @@ import theme from "./theme";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
 import {CartProvider} from "./context/cartContext";
+import Antartida from "./components/Antartida";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/Excursiones" element={<ItemListContainer />} />
+
+            <Route path="/Antartida" element={<Antartida />} />
+
 
             <Route path="/category/:CategoryId" element={<ItemListContainer />}
             />
