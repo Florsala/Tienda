@@ -21,7 +21,7 @@ const Cart = () => {
         ¡Arma tus valijas! La Patagonia te espera...
       </Typography>
 
-      <img className="fotoInicio" src={img4} loading="lazy" />
+      <img className="fotoInicio" src={img4} loading="lazy" alt="Beagle" />
 
       {cart.map((i) => (
         <>

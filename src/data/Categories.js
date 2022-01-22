@@ -1,4 +1,4 @@
-export default [
+ const categories = [
 
   
   { id: 1, 
@@ -9,3 +9,6 @@ export default [
     name: "*Terrestres", 
     address: "/category/Terrestres" },
 ];
+
+
+export default categories;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+
 import Counter from "./Counter";
 
 const ItemCount = ({ Add, stock }) => {
@@ -36,10 +35,12 @@ const ItemCount = ({ Add, stock }) => {
       <Counter onAdd={onAdd} substract={substract} initial={counter} />
 
       <Button
+      className="btnAgregar"
         sx={{ display: "inline" }}
         variant="outlined"
         size="small"
         color="primary"
+      
         
         pb={3}
         onClick={() => {

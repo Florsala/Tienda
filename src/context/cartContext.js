@@ -14,16 +14,36 @@ useEffect(() => {
 }, [cart])
 
 
+useEffect(() =>{
+if (localStorage.getItem("Cart") !== null ){
+    setCart(JSON.parse(localStorage.getItem("Cart")));
+}}, []);
+
+
+useEffect(() => {
+  localStorage.setItem("Cart", JSON.stringify(cart));
+}, [cart]);
+
+
+let itemsList = [];
+
+
 const addItem = (id,title, price,quantity) =>{
-    setCart([
+
+   
+ itemsList = [
         ...cart,
         {
           id: id,
           price: price,
           title: title,
           quantity: quantity
-        }
-      ]);
+        },
+    ];  
+
+    setCart(itemsList);
+          
+   
 
 }
 
@@ -51,6 +71,7 @@ const isInCart = (itemId) => {
 const context = {
     cart: cart,
     total: cart.length,
+    quantity: cart.quantity,
     addItem: addItem,
     removeItem: removeItem,
     clearCart:clearCart,

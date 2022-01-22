@@ -3,10 +3,10 @@ import img2 from "../img/pasarela.jpg";
 import img3 from "../img/Penguin.jpg";
 import img4 from "../img/trekking.jpg";
 import img5 from "../img/lobos.jpg";
-import img6 from "../img/andes.jpg";
+
 import img7 from "../img/heli2.jpg";
 
-export default [
+ const products =  [
   {
     id: "001",
     title: "Walking City tour",
@@ -80,3 +80,6 @@ export default [
 
   },
 ];
+
+
+export default products;

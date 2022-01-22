@@ -35,19 +35,15 @@ const ItemDetail = ({
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const { cart, addItem, isInCart } = useContext(cartContext);
+  const { cart, addItem } = useContext(cartContext);
 
   
   const Add = () => {
 
-//if (!isInCart) {
   setAddToCart(true);
 
-    addItem(id, title, price);
-//} else
+    addItem(id,title, price);
 
-
-//alert ('este producto ya esta en tu carrito')
           
     
   };
@@ -55,6 +51,7 @@ const ItemDetail = ({
   useEffect(() => {
     console.log(addToCart, "agregado");
   }, [addToCart]);
+
 
   return (
     <Box className={classes.boxContainer}>
@@ -82,7 +79,7 @@ const ItemDetail = ({
         </CardContent>
 
         {
-          !addToCart && <ItemCount stock={pax} Add={Add} /> //funcion agregar carrito
+          !addToCart && <ItemCount stock={pax} Add={Add} quantity= {cart.quantity}/> //funcion agregar carrito
         }
 
         {addToCart && (
