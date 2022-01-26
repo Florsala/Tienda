@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 
 import Counter from "./Counter";
 
-const ItemCount = ({ Add, stock }) => {
-  const [counter, setCounter] = useState(1);
+const ItemCount = ({ Add, stock, counter, setCounter }) => {
+ 
 
   const onAdd = () => {
     if (counter < stock) {

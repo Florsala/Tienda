@@ -2,9 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import products from "../data/products"
+
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+
+import db from '../firebase/firebase'
+import { getDoc, doc } from 'firebase/firestore';
 
 
 const ItemDetailContainer = () => {
@@ -16,8 +19,23 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    const ref = doc (db, 'products', id)
+
       setLoading(true);
 
+      getDoc(ref)
+      .then( querySnapshot => {
+        setItems({...querySnapshot.data(), id: querySnapshot.id})
+      })
+      .catch(e => console.log(e))
+
+      .finally(() => setLoading(false));
+  },[id]);
+  
+   
+
+
+/* 
   const getItem = new Promise((resolve) => {
     
     setTimeout(() => {
@@ -35,7 +53,7 @@ const ItemDetailContainer = () => {
 })
 .finally(() => setLoading(false));
   },[id]);
-
+ */
 
   return loading ?
   <>

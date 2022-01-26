@@ -11,12 +11,31 @@ import Home from "./components/Home";
 import {CartProvider} from "./context/cartContext";
 import Antartida from "./components/Antartida";
 
+import products from "./data/products";
+import db from "./firebase/firebase";
+import {collection, addDoc} from 'firebase/firestore';
+import {fileUpload} from './firebase/fileUpload';
+
 function App() {
+
+const uploadData = ()=> {
+
+products.forEach(async (element) =>{
+  const imgURL = await fileUpload(element.img)
+
+addDoc(collection(db, 'products'), {...element, img: imgURL} )
+
+})
+
+}
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <CartProvider>
           <NavBar />
+
+          <button className="btnSubir" onClick={uploadData}>Subir</button>
 
           <Routes>
             <Route path="/" element={<Home />} />

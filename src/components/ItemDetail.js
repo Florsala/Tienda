@@ -35,14 +35,16 @@ const ItemDetail = ({
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const { cart, addItem } = useContext(cartContext);
+  const {  addItem } = useContext(cartContext);
+
+  const [counter, setCounter] = useState(1);
 
   
   const Add = () => {
 
   setAddToCart(true);
 
-    addItem(id,title, price);
+    addItem(id,title, price, counter);
 
           
     
@@ -79,7 +81,8 @@ const ItemDetail = ({
         </CardContent>
 
         {
-          !addToCart && <ItemCount stock={pax} Add={Add} quantity= {cart.quantity}/> //funcion agregar carrito
+          !addToCart && <ItemCount stock={pax} Add={Add} counter={counter} setCounter={setCounter}/> 
+          //funcion agregar carrito
         }
 
         {addToCart && (

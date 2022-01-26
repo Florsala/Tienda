@@ -8,7 +8,7 @@ import img7 from "../img/heli2.jpg";
 
  const products =  [
   {
-    id: "001",
+ 
     title: "Walking City tour",
     price: 5500,
     category: "Terrestres",
@@ -19,7 +19,7 @@ import img7 from "../img/heli2.jpg";
     pax: 10,
   },
   {
-    id: "002",
+    
     title: "Trekking en Parque Nacional",
     price: 7000,
     category: "Terrestres",
@@ -31,7 +31,7 @@ import img7 from "../img/heli2.jpg";
 
   },
   {
-    id: "003",
+    
     title: "Navegación faro + pingüinos",
     price: 8000,
     category: "Navegaciones",
@@ -43,7 +43,7 @@ import img7 from "../img/heli2.jpg";
 
   },
   {
-    id: "004",
+    
     title: "Trekking de montaña",
     price: 8500,
     category: "Terrestres",
@@ -55,7 +55,7 @@ import img7 from "../img/heli2.jpg";
 
   },
   {
-    id: "005",
+    
     title: "Navegación Isla de Lobos",
     price: 5200,
     category: "Navegaciones",
@@ -67,7 +67,7 @@ import img7 from "../img/heli2.jpg";
 
   },
   {
-    id: "006",
+   
     title: "Heli Sobrevuelo",
     price: 40000,
     category: "Terrestres",
