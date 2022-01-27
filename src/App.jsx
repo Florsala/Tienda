@@ -35,7 +35,7 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
         <CartProvider>
           <NavBar />
 
-          <button className="btnSubir" onClick={uploadData}>Subir</button>
+       {/*  <button className="btnSubir" onClick={uploadData}>Subir</button> */}
 
           <Routes>
             <Route path="/" element={<Home />} />

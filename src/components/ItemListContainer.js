@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-
+import products from "../data/products";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-
-
-import db from '../firebase/firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -16,36 +12,10 @@ export const ItemListContainer = () => {
 
   const { CategoryId } = useParams();
 
-  useEffect(async() => {
+  useEffect(() => {
     setLoading(true);
 
-    const getItems = CategoryId ?
-    query(collection(db, 'products'), where('category', '==',CategoryId ))
-    :
-    collection(db, 'products');
-
-    try {
-      const querySnapshot = await getDocs(getItems)
-
-     
-
-      setItems(querySnapshot.docs.map(e => {
-        return {...e.data(), id: e.id}
-      }))
-    }
-    catch {
-      console.log("error");
-    }
-
-    setLoading(false)
-  }, [CategoryId]);
-
-
-
-
-    
-    
- /*    new Promise((resolve) => {
+    const getItems = new Promise((resolve) => {
       setTimeout(() => {
         const dataId = CategoryId
           ? products.filter((item) => item.category === CategoryId)
@@ -60,7 +30,7 @@ export const ItemListContainer = () => {
         setItems(res);
       })
       .finally(() => setLoading(false));
-  }, [CategoryId]); */
+  }, [CategoryId]);
 
   return loading ? (
     <>
@@ -80,3 +50,4 @@ export const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
+

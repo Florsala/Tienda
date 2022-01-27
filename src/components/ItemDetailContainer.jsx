@@ -2,11 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-
+import products from "../data/products"
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import db from '../firebase/firebase'
+import db from '../firebase/firebase';
 import { getDoc, doc } from 'firebase/firestore';
 
 
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
 
       getDoc(ref)
       .then( querySnapshot => {
-        setItems({...querySnapshot.data(), id: querySnapshot.id})
+        setItems({...querySnapshot.products(), id: querySnapshot.id})
       })
       .catch(e => console.log(e))
 
