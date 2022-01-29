@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import products from "../data/products";
+
+
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+
+import db from "../firebase/firebase";
+import {collection, getDocs, query, where} from 'firebase/firestore';
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -12,10 +16,10 @@ export const ItemListContainer = () => {
 
   const { CategoryId } = useParams();
 
-  useEffect(() => {
+  useEffect(async() => {
     setLoading(true);
 
-    const getItems = new Promise((resolve) => {
+  /*   const getItems = new Promise((resolve) => {
       setTimeout(() => {
         const dataId = CategoryId
           ? products.filter((item) => item.category === CategoryId)
@@ -24,13 +28,41 @@ export const ItemListContainer = () => {
         resolve(dataId);
       }, 1500);
     });
+ */
 
-    getItems
+//prueba
+
+try {
+  
+const dataId= CategoryId ? 
+query(collection(db, 'products'), where('category', '==', CategoryId))
+
+: collection(db, 'products');
+
+const querySnapshot = await getDocs(dataId)
+
+
+
+setItems(querySnapshot.docs.map(el => {
+  return{...el.data(), id: el.id}
+})
+)
+}
+
+catch{
+  console.log('hubo un problema');
+}
+
+setLoading(false)
+  }, [CategoryId]);
+
+  /*   getItems
       .then((res) => {
         setItems(res);
       })
       .finally(() => setLoading(false));
-  }, [CategoryId]);
+  }, [CategoryId]); */
+ 
 
   return loading ? (
     <>
