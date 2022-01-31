@@ -8,16 +8,18 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
+import Form from "./components/Form"
 import {CartProvider} from "./context/cartContext";
 import Antartida from "./components/Antartida";
+import Footer from "./components/pages/Footer"
 
-import products from "./data/products";
-import db from "./firebase/firebase";
-import {collection, addDoc} from 'firebase/firestore';
-import {fileUpload} from './firebase/fileUpload';
+//import products from "./data/products";
+//import db from "./firebase/firebase";
+//import {collection, addDoc} from 'firebase/firestore';
+//import {fileUpload} from './firebase/fileUpload';
 
 function App() {
-
+/* 
 const uploadData = ()=> {
 
 products.forEach(async (element) =>{
@@ -27,7 +29,7 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
 
 })
 
-}
+} */
 
   return (
     <ThemeProvider theme={theme}>
@@ -51,7 +53,12 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
             <Route path="/tour/:id" element={<ItemDetailContainer />} />
 
             <Route path="/cart" element={<Cart />} />
+
+            <Route path="/checkOut" element={<Form/>} />
+
           </Routes>
+
+          <Footer/>
         </CartProvider>
       </BrowserRouter>
     </ThemeProvider>

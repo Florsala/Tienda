@@ -35,7 +35,7 @@ const ItemDetail = ({
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const {  addItem } = useContext(cartContext);
+  const {  addItem, addTotal } = useContext(cartContext);
 
   const [counter, setCounter] = useState(1);
 
@@ -45,6 +45,7 @@ const ItemDetail = ({
   setAddToCart(true);
 
     addItem(id,title, price, counter);
+    addTotal ();
 
           
     
@@ -66,6 +67,7 @@ const ItemDetail = ({
           alt={`${id}`}
         />
         <CardContent>
+          
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>

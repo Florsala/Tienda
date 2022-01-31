@@ -37,7 +37,9 @@ const addItem = (id,title, price,quantity) =>{
           id: id,
           price: price,
           title: title,
-          quantity: quantity
+          quantity: quantity,
+          
+        
         },
     ];  
 
@@ -48,12 +50,26 @@ const addItem = (id,title, price,quantity) =>{
 }
 
 
+
+
+const addTotal = () => {
+let parTotal = 0;
+
+cart.forEach((item) => (parTotal += item.price * item.quantity))
+
+return  parTotal;
+}
+
+
+
+
 const removeItem = (items) => {
 
     const newList = cart.filter(
       i => i.id !== items.id
     )
 setCart(newList);
+addTotal();
 }
 
 const clearCart = () => {
@@ -72,6 +88,7 @@ const context = {
     cart: cart,
     total: cart.length,
     quantity: cart.quantity,
+    addTotal: addTotal,
     addItem: addItem,
     removeItem: removeItem,
     clearCart:clearCart,
