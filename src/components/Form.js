@@ -5,9 +5,8 @@ import Button from "@mui/material/Button";
 import cartContext from "../context/cartContext";
 import { addDoc, collection } from "firebase/firestore";
 import db from "../firebase/firebase";
-import {getFirestore} from "firebase/firestore";
-import { Typography} from "@mui/material";
-
+import { getFirestore } from "firebase/firestore";
+import { Typography } from "@mui/material";
 
 export default function FormPropsTextFields() {
   const [nombre, setNombre] = useState("");
@@ -23,59 +22,49 @@ export default function FormPropsTextFields() {
 
   const total = addTotal();
   const buyingDate = new Date();
- 
 
-
-
-const enviarDatos =  () => {
-
+  const enviarDatos = () => {
     setFinCompra(true);
-  
-  const nuevaOrden = {
-      buyer:{
-          nombre: nombre,
-          email: email,
-          direccion: direccion,
-          telefono: telefono
+
+    const nuevaOrden = {
+      buyer: {
+        nombre: nombre,
+        email: email,
+        direccion: direccion,
+        telefono: telefono,
       },
 
-      items:{
-          cart: [...cart],
+      items: {
+        cart: [...cart],
       },
 
-      date:{
+      date: {
         fecha: buyingDate.toLocaleString(),
       },
 
       total: {
-          total: total,
-      }
+        total: total,
+      },
+    };
 
+    const db = getFirestore();
+
+    const ordersCollection = collection(db, "orders");
+
+    addDoc(ordersCollection, nuevaOrden)
+      .then(({ id }) => {
+        setOrderId(id);
+        setNombre("");
+        setEmail("");
+        setDireccion("");
+        setTelefono("");
+        setHotel("");
+      })
+
+      .catch((error) => {
+        console.error(error);
+      });
   };
-  
-  const db = getFirestore();
-
-  const ordersCollection = collection(db, "orders");
-
-   addDoc(ordersCollection, nuevaOrden).then(({id}) =>
-    {setOrderId(id);
-    setNombre("");
-    setEmail("");
-    setDireccion("");
-    setTelefono("");
-    setHotel("");
-
-    
-    })
-   
-   .catch((error) => {
-    console.error(error);
-  });
-};
-
-
-
-
 
   return (
     <Box
@@ -122,10 +111,9 @@ const enviarDatos =  () => {
           type="text"
           label="Alojamiento"
           autoComplete="Alojamiento"
-         
           variant="standard"
           helperText="Hotel donde estará alojado"
-         value={hotel}
+          value={hotel}
           onChange={(event) => setHotel(event.target.value)}
         />
         <TextField
@@ -136,22 +124,26 @@ const enviarDatos =  () => {
           onChange={(event) => setTelefono(event.target.value)}
         />
       </div>
-      <Button onClick={enviarDatos} color="secondary" variant="contained" m={5} size="small">
+      <Button
+        onClick={enviarDatos}
+        color="secondary"
+        variant="contained"
+        m={5}
+        size="small"
+      >
         Enviar datos
       </Button>
 
-{finCompra && 
-<Box m={3} >
-<Typography p={5}variant= "h4">
-    Gracias por tu compra! 
-
-</Typography>
-<Typography p={3} variant= "h6">
-Tu iD de compra es {orderId}
-</Typography>
-</Box>
-}
-
+      {finCompra && (
+        <Box m={3}>
+          <Typography p={5} variant="h4">
+            Gracias por tu compra!
+          </Typography>
+          <Typography p={3} variant="h6">
+            Tu iD de compra es {orderId}
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 }

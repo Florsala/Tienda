@@ -18,6 +18,8 @@ const useStyles = makeStyles(  ({
   },
   NavLinks: {
     display: "flex",
+    justifyContent: "center",
+    flexGrow: "3",
   },
 
   link: {
@@ -43,9 +45,9 @@ const NavBar = () => {
             <Typography>
               <div className={classes.NavLinks}>
                 
-                <Link to="/" className={classes.link}>
+                {/* <Link to="/" className={classes.link}>
                   Inicio
-                </Link>
+                </Link> */}
 
                 <Link to="/Excursiones" className={classes.link}>
                   Excursiones
