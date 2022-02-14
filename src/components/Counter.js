@@ -2,6 +2,10 @@ import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 
 const Counter = ({substract, initial, onAdd}) => {
+
+
+
+  
     return (
         <div>
             <Box sx={{ display: "inline-flex" }} m={3}>

@@ -14,7 +14,7 @@ const CartWidget = () => {
       <Link to={"/Cart"}>
         <LocalMallIcon color="white" />
         <span className="cartNumber">
-            ({total})
+            {total}
            
         </span>
       </Link>

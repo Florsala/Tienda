@@ -8,24 +8,54 @@ import {
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import cartContext from "../context/cartContext";
-// import img4 from "../img/fotoBeagle.jpg";
+import HikingIcon from '@mui/icons-material/Hiking';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
 
 const Cart = () => {
   let empty = "false";
 
-  const { cart, clearCart, removeItem, addTotal } = useContext(cartContext);
+  const { cart, clearCart, removeItem, addTotal, total } = useContext(cartContext);
+
+
+const message = (
+  <div className="cartContainer">
+  <Typography variant="h6" color="text.secondary" marginTop={12} marginBottom={6}>
+  ¡Ups! Tu carrito está vacío...
+
+</Typography>
+
+<Link to = "/Excursiones">
+<Button color="secondary" variant="contained" m={5} size="small">
+Ir a comprar     
+<HikingIcon sx={{ padding: 1 }}/>
+
+       </Button>
+  
+</Link>
+
+
+</div>
+
+)
+
+
 
   return (
     <Container>
-      <Typography variant="h4" color="text.secondary" marginTop={12}>
+      <Typography variant="h6" color="text.secondary" margin={12} className="CartHeader">
         ¡Arma tus valijas! La Patagonia te espera...
       </Typography>
 
-{/*  <img className="fotoInicio" src={img4} loading="lazy" alt="Beagle" />
- */}
+{total === 0 ? (message) : 
+
+(
+<>
+
       {cart.map((i) => (
-        <>
-          <Card key={i.id} >
+        <div className="CartItems">
+          <Card  key={i.id} >
             <CardContent >
               <Typography variant="h5">{i.title} </Typography>
               <Typography variant="h6"> AR${i.price}</Typography>
@@ -38,22 +68,24 @@ const Cart = () => {
               removeItem(i);
             }}
           >
+            <DeleteIcon/>
             Eliminar
           </Button>
-        </>
+        </div>
       ))}
 
-      <Card>
+      <Card className="CartItems">
         <CardContent>
         <Typography variant="h6">Total: AR$ {addTotal()}</Typography>
         </CardContent>
       </Card>
 
-      <Button
+      <Button className="CartButtons"
         onClick={() => {
           clearCart((empty = "true"));
         }}
       >
+        
         Vaciar mi carrito
       </Button>
 
@@ -61,7 +93,7 @@ const Cart = () => {
         <>
           <Link to="/Excursiones">
             <Button color="secondary" variant="contained" m={5} size="small">
-              Volver al inicio
+              Seguir comprando
             </Button>
           </Link>
         </>
@@ -69,11 +101,13 @@ const Cart = () => {
 
 
           <Link to="/checkOut">
-            <Button color="secondary" variant="contained" m={5} size="small">
-             Check out
+            <Button color="primary" variant="contained" m={5} size="small">
+             Finalizar compra
             </Button>
           </Link>
-        
+          
+          </>
+)}
     </Container>
   );
 };

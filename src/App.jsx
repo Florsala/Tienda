@@ -32,7 +32,7 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
 } */
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} className="App">
       <BrowserRouter>
         <CartProvider>
           <NavBar />

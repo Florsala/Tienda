@@ -18,13 +18,14 @@ export default function FormPropsTextFields() {
   const [orderId, setOrderId] = useState("");
   const [finCompra, setFinCompra] = useState(false);
 
-  const { cart, addTotal } = useContext(cartContext);
+  const { cart, addTotal, clearCart } = useContext(cartContext);
 
   const total = addTotal();
   const buyingDate = new Date();
 
   const enviarDatos = () => {
     setFinCompra(true);
+    clearCart();
 
     const nuevaOrden = {
       buyer: {
@@ -59,6 +60,8 @@ export default function FormPropsTextFields() {
         setDireccion("");
         setTelefono("");
         setHotel("");
+
+      
       })
 
       .catch((error) => {
@@ -113,18 +116,25 @@ export default function FormPropsTextFields() {
           autoComplete="Alojamiento"
           variant="standard"
           helperText="Hotel donde estará alojado"
+          title="Si aún no sabe dónde estará alojado puede informarlo luego"
           value={hotel}
           onChange={(event) => setHotel(event.target.value)}
         />
         <TextField
           id="standard-required"
+          type="tel"
           label="Teléfono"
           variant="standard"
           value={telefono}
+          pattern="\([0-9]{3}\) [0-9]{3}[ -][0-9]{4}"
+          title="Inserte su número con código de área" required
           onChange={(event) => setTelefono(event.target.value)}
         />
       </div>
       <Button
+      disabled={
+        !nombre || !direccion || !email  || !telefono  
+      }
         onClick={enviarDatos}
         color="secondary"
         variant="contained"

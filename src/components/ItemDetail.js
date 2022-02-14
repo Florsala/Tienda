@@ -35,18 +35,19 @@ const ItemDetail = ({
 
   const [addToCart, setAddToCart] = useState(false);
 
-  const {  addItem, addTotal } = useContext(cartContext);
+  const {  addItem, addTotal, isInCart, cart , quantity} = useContext(cartContext);
 
   const [counter, setCounter] = useState(1);
 
   
   const Add = () => {
 
+  
   setAddToCart(true);
 
     addItem(id,title, price, counter);
     addTotal ();
-
+    
           
     
   };
@@ -56,9 +57,11 @@ const ItemDetail = ({
   }, [addToCart]);
 
 
+
+
   return (
-    <Box className={classes.boxContainer}>
-      <Card sx={{ maxWidth: 500, paddingBottom: 2, boxShadow: 3 }}>
+    <Box  className={classes.boxContainer}>
+      <Card sx={{ width: 800, paddingBottom: 2, boxShadow: 3 }}>
         <CardMedia
           component="img"
           height="450"
