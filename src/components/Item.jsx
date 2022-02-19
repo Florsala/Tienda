@@ -70,7 +70,7 @@ const Item = ({ items }) => {
         fontWeight:700,
         color:"#f3e8e8",
         margin:2,
-      }} size="large" variant="h6" variant="contained" >ver actividad</Button>
+      }} size="large"  variant="contained" >ver actividad</Button>
           </Link>
           <Typography color="text.primary" > Tarifa por pasajero
             
