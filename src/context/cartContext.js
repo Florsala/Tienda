@@ -8,6 +8,8 @@ const CartProvider = ({children}) =>{
 
     const [cart, setCart] = useState([])
 
+    
+
 useEffect(() => {
     console.log('products', cart);
     
@@ -27,21 +29,16 @@ useEffect(() => {
 
 
  
-function addItem (item,id,title, price,quantity) {
-   let itemsList = [...cart,
-    {
-      id: id,
-      price: price,
-      title: title,
-      quantity: quantity,
-              
-    },
-  ]
-
+function addItem (item) {
+   let itemsList = [...cart]
+    
   
-  if(itemsList.some(e => e.id === item.id)){
-    itemsList.find(e => e.id === item.id).quantity += item.quantity
-    setCart(itemsList)
+  if(itemsList.some(e => e.item.id === item.item.id)){
+    itemsList.find(e => e.item.id === item.item.id)    
+     .quantity += item.quantity 
+    setCart(itemsList) 
+
+
     
   } else{
     setCart ([...cart, item])
@@ -51,113 +48,25 @@ function addItem (item,id,title, price,quantity) {
 
 
 
- 
- 
-
-
-
-/* 
-let itemsList = [];
-
-
-const addItem = (id,title, price,quantity) =>{
-
-   
-  itemsList = [
-         ...cart,
-         {
-           id: id,
-           price: price,
-           title: title,
-           quantity: quantity,
-                   
-         },
-     ];  
-
- 
-     setCart(itemsList);
-           
-  
-     
-
- } */
-
-///PRUEBA
-
-  /*   const isInCart = (itemId) => {
-
-      const findItem = cart.findIndex(({elem}) => {
-        return elem.id === cart.itemId.id;
-      });
-
- console.log('funciono', findItem);
- }
-  */
-
-
-
-
-
-
-/* 
-const addItem = (item,id,title, price,quantity) =>{
-
-  const findId = cart.findIndex(
-    (itemsList)=> itemsList.item.id === item.id
-  );
-
-
-  if (findId === -1){
-
-itemsList = [
-        ...cart,
-        { 
-          id: id,
-          price: price,
-          title: title,
-          quantity: quantity,
-          
-        
-        },
-    ];  
-    setCart(itemsList);
-
-  } else {
-    console.log('encontrado');
-  }
-
- 
-
-    setCart(itemsList);
-          
-
-
-}
- */
-
-
 const addTotal = () => {
 
-let parTotal = 0;
-
-cart.forEach((item) => (parTotal += item.price * item.quantity))
-
-return  parTotal;
+  return cart.reduce((quantity, value) => (quantity + (value.quantity*value.item.price)), 0)
 }
 
 
 
-
-const removeItem = (items) => {
+const removeItem = (item) => {
 
   const newList = cart.filter(
-    i => i.id !== items.id
+    e => e.item.id !== item.item.id
   )
 setCart(newList);
 addTotal();
 }
 
 const clearCart = () => {
+
+ 
 setCart([]);
 
 }
@@ -174,6 +83,7 @@ const context = {
     addItem: addItem,
     removeItem: removeItem,
     clearCart:clearCart,
+   
    
 }
 

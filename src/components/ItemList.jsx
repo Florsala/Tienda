@@ -5,15 +5,14 @@ import Item from "./Item";
 
   return (
     <div className='FlexCards'>
-      {items.map( (i) => 
-      (<div >
-      <Item {...i} key= {i.id}/> </div>))
-
-      }
+      
+      <Item items={items} /> 
+              
       
     </div>
   )
 }
 
 export default ItemList
+
 

@@ -4,9 +4,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import cartContext from "../context/cartContext";
 import { addDoc, collection } from "firebase/firestore";
-import db from "../firebase/firebase";
 import { getFirestore } from "firebase/firestore";
-import { Typography } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 
 export default function FormPropsTextFields() {
   const [nombre, setNombre] = useState("");
@@ -14,6 +13,16 @@ export default function FormPropsTextFields() {
   const [direccion, setDireccion] = useState("");
   const [telefono, setTelefono] = useState("");
   const [hotel, setHotel] = useState("");
+  const [credit, setCredit] = useState('');
+  const [credNumer, setCredNumber] = useState('');
+  const [expire, setExpire] = useState('');
+  const [code, setCode] = useState('');
+
+
+
+  const handleChange = (event) => {
+    setCredit(event.target.value);
+  };
 
   const [orderId, setOrderId] = useState("");
   const [finCompra, setFinCompra] = useState(false);
@@ -60,6 +69,10 @@ export default function FormPropsTextFields() {
         setDireccion("");
         setTelefono("");
         setHotel("");
+        setCredit("");
+        setExpire("");
+        setCredNumber("");
+        setCode("");
 
       
       })
@@ -95,7 +108,6 @@ export default function FormPropsTextFields() {
           type="text"
           label="E-mail"
           autoComplete="E-mail"
-          defaultValue="@"
           variant="standard"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -130,10 +142,71 @@ export default function FormPropsTextFields() {
           title="Inserte su número con código de área" required
           onChange={(event) => setTelefono(event.target.value)}
         />
+         
+ <div >
+
+   
+
+ <FormControl sx={{ m: 3,  minWidth: 180 }}>
+        <InputLabel id="demo-simple-select-label">Tarjeta de crédito</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="standard-required"
+          value={credit}
+          label="Tarjeta de crédito"
+           onChange={handleChange} 
+        >
+          <MenuItem value={1}>Visa</MenuItem>
+          <MenuItem value={2}>MasterCard</MenuItem>
+          <MenuItem value={3}>American Express</MenuItem>
+        </Select>
+      </FormControl>
+       
+            
+            <TextField 
+            type="text" 
+            label ="número de tarjeta" 
+            
+            id="standard"
+            value={credNumer}
+            placeholder="0000 0000 0000 0000" 
+            title="Inserte su número de tarjeta de crédito" 
+            onChange={(event) => setCredNumber(event.target.value)}
+            />
+
+                 
+         
+          <TextField 
+          
+             type="text" 
+            label ="Vencimiento" 
+            id="Vencimiento" 
+            value={expire}
+            placeholder="00/00/0000" 
+            title="Inserte su número de tarjeta de crédito" required
+            onChange={(event) => setExpire(event.target.value)}
+            />
+
+            
+          
+          
+          <TextField 
+            type="text" 
+            label ="Cod. seguridad" 
+            id="Cod. seguridad"
+            value={code} 
+            placeholder="" 
+            title="Inserte el código de seguridad" required
+            onChange={(event) => setCode(event.target.value)}/>
+
+            
+          </div>
+        
+        
       </div>
       <Button
       disabled={
-        !nombre || !direccion || !email  || !telefono  
+        !nombre || !direccion || !email  || !telefono 
       }
         onClick={enviarDatos}
         color="secondary"
@@ -145,11 +218,11 @@ export default function FormPropsTextFields() {
       </Button>
 
       {finCompra && (
-        <Box m={3}>
-          <Typography p={5} variant="h4">
+        <Box m={5} className="finCompra">
+          <Typography p={5} variant="h5">
             Gracias por tu compra!
           </Typography>
-          <Typography p={3} variant="h6">
+          <Typography p={3} variant="body1">
             Tu iD de compra es {orderId}
           </Typography>
         </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 
-import Counter from "./Counter";
+import { Box, Typography } from "@mui/material";
 
 const ItemCount = ({ Add, stock, counter, setCounter }) => {
  
@@ -19,40 +19,40 @@ const ItemCount = ({ Add, stock, counter, setCounter }) => {
   };
 
   return (
-    <div>
-      {/*  <Box sx={{ display: "inline-flex" }} m={3}>
-        <Button variant="outlined" size="x-small" className="button" onClick={substract}>
+    <div className="buttonsBox">
+      <Box sx={{ display: "inline-flex" }} m={3}>
+        <Button variant="contained" size="x-small" className="button" onClick={substract}>
          
           -
         </Button>
 
         <Typography m={1}>cantidad de pasajeros: {counter}</Typography>
-        <Button variant="outlined" size="small" className="button" onClick={onAdd}>
+        <Button variant="contained" size="small" className="button" onClick={onAdd}>
           +
         </Button>
-      </Box> */}
+      </Box> 
 
-      <Counter onAdd={onAdd} substract={substract} initial={counter} />
+     
 
       <Button
       className="btnAgregar"
-        sx={{ display: "inline" }}
-        variant="outlined"
-        size="small"
-        color="primary"
+        
+        variant="contained"
+        size="medium"
+        color="secondary"
       
         
         pb={3}
         onClick={() => {
           Add();
-          /* if (counter === 1) {
+           if (counter === 1) {
             console.log(`${counter} item agregado al carrito`);
           } else {
             console.log(`${counter} items agregados al carrito`);
-          } */
+          } 
         }}
       >
-        Agregar
+        Comprar
       </Button>
     </div>
   );

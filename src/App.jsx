@@ -7,10 +7,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import Cart from "./components/Cart";
-import Home from "./components/Home";
 import Form from "./components/Form"
 import {CartProvider} from "./context/cartContext";
-import Antartida from "./components/Antartida";
 import Footer from "./components/pages/Footer"
 
 //import products from "./data/products";
@@ -40,11 +38,11 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
        {/*  <button className="btnSubir" onClick={uploadData}>Subir items</button> */}
 
           <Routes>
-            <Route path="/" element={<Home />} />
+            
+
+            <Route path="/" element={<ItemListContainer />} />
 
             <Route path="/Excursiones" element={<ItemListContainer />} />
-
-            <Route path="/Antartida" element={<Antartida />} />
 
 
             <Route path="/category/:CategoryId" element={<ItemListContainer />}

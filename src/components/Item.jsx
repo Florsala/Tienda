@@ -12,12 +12,19 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({ id, title, price, img, description }) => {
+const Item = ({ items }) => {
   return (
 
-    
+    <>
 
-    <Box sx={{
+   {
+     items.map(items =>
+
+    
+   
+   
+   <Box key={items.id} 
+   sx={{
       display: 'flex',
       flexWrap: 'wrap',
       
@@ -25,38 +32,68 @@ const Item = ({ id, title, price, img, description }) => {
     }} m={4} elevation={20} mt={10}>
     
       <Card  sx={{ width: 380, paddingBottom: 2, boxShadow: 3 }}>
-        <CardMedia
+        <CardMedia className="cards"
           component="img"
           height="200"
-          image={img}
-          price={price}
+          image={items.img}
+          price={items.price}
           alt="Tour"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
+        <CardContent sx={{
+        display: "flex",
+        justifyContent: "center",
+        textAlign: "center",
+        flexDirection: "column",
+      }}>
+          <Typography gutterBottom variant="h5"  component="div">
+            {items.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-           {description}
+           {items.description}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Link to= {`/tour/${id}`}>
-          <Button size="small">Comprar</Button>
+
+
+        <CardActions sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}>
+          <Box sx={{
+        textAlign: "center"
+      }} > 
+          <Link to= {`/tour/${items.id}`}>
+          
 
           
-          <Button size="small" >Más info</Button>
+          <Button sx={{
+        backgroundColor:"#0893dd",
+        fontWeight:700,
+        color:"#f3e8e8",
+        margin:2,
+      }} size="large" variant="h6" variant="contained" >ver actividad</Button>
           </Link>
-          <Typography color="text.primary" m={3}>
-            AR$ {price}
+          <Typography color="text.primary" > Tarifa por pasajero
+            
           </Typography>
+          <Typography color="text.primary" variant="h6" sx={{
+        fontWeight: 700,
+        padding:2,
+      }}> 
+            AR$ {items.price}
+          </Typography>
+          
+          </Box>
         </CardActions>
 
       </Card>
     </Box>
 
-    
+     )
+    }
+
+    </>
   );
 };
 
 export default Item;
+

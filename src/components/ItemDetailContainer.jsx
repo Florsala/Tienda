@@ -11,7 +11,7 @@ import { getDoc, doc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
-  const [items, setItems] = useState({});
+  const [item, setItem] = useState({});
 
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
 
       getDoc(ref)
       .then( querySnapshot => {
-        setItems({...querySnapshot.data(), id: querySnapshot.id})
+        setItem({...querySnapshot.data(), id: querySnapshot.id})
       })
       .catch(e => console.log(e))
  
@@ -33,26 +33,6 @@ const ItemDetailContainer = () => {
   
    
 
-
-/* 
-  const getItem = new Promise((resolve) => {
-    
-    setTimeout(() => {
-          const filter = products.find((product) => product.id === id);
-    
-      resolve(filter);
-    }, 1200);
-  });
-  
-
-  getItem
-  
-  .then((resolve) => {
-    setItems(resolve);
-})
-.finally(() => setLoading(false));
-  },[id]);
- */
 
   return loading ?
   <>
@@ -67,7 +47,8 @@ const ItemDetailContainer = () => {
   :
   
     <div>
-      <ItemDetail key={items.id} {...items}/>
+      <ItemDetail /* key={item.id} */ 
+      item={item}/>
     </div>
  
 };

@@ -8,6 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import db from "../firebase/firebase";
 import {collection, getDocs, query, where} from 'firebase/firestore';
+import Home from "./Home";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -19,18 +20,7 @@ export const ItemListContainer = () => {
   useEffect(async() => {
     setLoading(true);
 
-  /*   const getItems = new Promise((resolve) => {
-      setTimeout(() => {
-        const dataId = CategoryId
-          ? products.filter((item) => item.category === CategoryId)
-          : products;
-
-        resolve(dataId);
-      }, 1500);
-    });
- */
-
-//prueba
+  
 
 try {
   
@@ -75,7 +65,10 @@ setLoading(false)
       </Backdrop>
     </>
   ) : (
+
+    
     <div>
+      <Home/>
       <ItemList items={items} />
     </div>
   );
