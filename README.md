@@ -7,11 +7,28 @@ Proyecto desarrollado para curso de React de CoderHouse
 
 ### Funcionalidad
 
-La idea principal de este proyecto es simular una ecommerce aplicada al rubro de turismo.
+La idea principal de este proyecto es simular una ecommerce aplicada a la venta de productos turísticos.
+Se utilizó ReatJS para su funcionalidad. A su vez la aplicación se adaptó a Firebase para la carga de los productos,
+sus respectivas imágenes y para luego enviar los datos del usuario en el formulario de compra.
 
+### Para la instalación:
+
+Download zip
+
+`$ npm install`
+
+`$ npm start`
 
 
 ### Dependencias
 
-Material UI
+Para los estilos se implementó la librería de Material UI
 
+#### Autoría
+
+###### Realizado por Florencia Salamanca
+>Front End developer en proceso
+
+>florsala@gmail.com
+
+>https://www.linkedin.com/in/florencia-salamanca-dev/
