@@ -11,6 +11,11 @@ La idea principal de este proyecto es simular una ecommerce aplicada a la venta 
 Se utilizó ReatJS para su funcionalidad. A su vez la aplicación se adaptó a Firebase para la carga de los productos,
 sus respectivas imágenes y para luego enviar los datos del usuario en el formulario de compra.
 
+
+![webTienda](https://user-images.githubusercontent.com/80179793/154783080-7b33219f-1ed7-4207-b1c2-43efac177487.png)
+
+
+
 ### Para la instalación:
 
 Download zip
