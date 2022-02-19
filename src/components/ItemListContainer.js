@@ -10,6 +10,9 @@ import db from "../firebase/firebase";
 import {collection, getDocs, query, where} from 'firebase/firestore';
 import Home from "./Home";
 
+
+
+
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
@@ -20,38 +23,32 @@ export const ItemListContainer = () => {
   useEffect(async() => {
     setLoading(true);
 
+
   
 
-try {
+
   
 const dataId= CategoryId ? 
 query(collection(db, 'products'), where('category', '==', CategoryId))
 
 : collection(db, 'products');
 
+try {
 const querySnapshot = await getDocs(dataId)
 
 
+      setItems(querySnapshot.docs.map(e => {
+        return {...e.data(), id: e.id}
+      }))
+    }
+    catch {
+      console.log("error");
+    }
 
-setItems(querySnapshot.docs.map(el => {
-  return{...el.data(), id: el.id}
-})
-)
-}
-
-catch{
-  console.log('hubo un problema');
-}
-
-setLoading(false)
+    setLoading(false)
   }, [CategoryId]);
 
-  /*   getItems
-      .then((res) => {
-        setItems(res);
-      })
-      .finally(() => setLoading(false));
-  }, [CategoryId]); */
+
  
 
   return loading ? (

@@ -57,8 +57,7 @@ const ItemDetail = ({ item }) => {
   const Add = () => {
     setAddToCart(true);
 
-    /* addItem(id,title, price, counter); */
-
+   
     addItem({ item: item, quantity: counter });
 
     addTotal();
@@ -69,7 +68,7 @@ const ItemDetail = ({ item }) => {
   }, [addToCart]);
 
   return (
-    <Card /* className={classes.boxContainer} */ sx={{ paddingBottom: 4 }}>
+    <Card  sx={{ paddingBottom: 4 }}>
       <CardMedia
         component="img"
         height="450"
