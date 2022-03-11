@@ -36,7 +36,7 @@ const Cart = () => {
       <img className="cartPhoto" height={330} src={Pingui} loading="lazy" alt="Pingui" />
 
 
-      <Link to="/Excursiones">
+      <Link to="/tienda">
         <Button color="secondary" variant="contained" m={5} size="small">
           Ir a comprar
           <DirectionsRunIcon sx={{ padding: 1 }} />

@@ -14,7 +14,6 @@ const useStyles = makeStyles({
   logo: {
     flexGrow: "1",
     cursor: "pointer",
-    
   },
   NavLinks: {
     display: "flex",
@@ -33,7 +32,7 @@ const useStyles = makeStyles({
     display: "flex",
     fontSize: "1rem",
     textTransform: "uppercase",
-  }
+  },
 });
 
 const NavBar = () => {
@@ -45,7 +44,7 @@ const NavBar = () => {
         <AppBar>
           <Toolbar>
             <Typography variant="h5" className={classes.logo}>
-              <Link className="Logo" to="/">
+              <Link className="Logo" to="/tienda">
                 TurisTienda
                 <span>
                   <AcUnitIcon className="snowFlake" />
@@ -55,26 +54,21 @@ const NavBar = () => {
 
             <Typography className="NavOptions">
               <div className={classes.NavLinks}>
-                
-
-                <Link to="/Excursiones" className={classes.link}>
+                <Typography variant="h6" className={classes.link}>
                   Excursiones
-                </Link>
+                </Typography>
 
                 <div className={classes.category}>
                   {Categories.map((category) => {
                     return (
-                      <div key={category.id} >
+                      <div key={category.id}>
                         <NavLink to={category.address} activeclassname="active">
                           {category.name}
-
                         </NavLink>
                       </div>
                     );
                   })}
                 </div>
-
-               
               </div>
             </Typography>
             <CartWidget />
