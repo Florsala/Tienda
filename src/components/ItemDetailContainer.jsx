@@ -36,7 +36,7 @@ const ItemDetailContainer = () => {
 
   return loading ?
   <>
-    <h2>cargando...</h2>
+    
       <Backdrop
         sx={{ color: "#e8b610", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open
@@ -47,7 +47,7 @@ const ItemDetailContainer = () => {
   :
   
     <div>
-      <ItemDetail /* key={item.id} */ 
+      <ItemDetail 
       item={item}/>
     </div>
  

@@ -30,7 +30,7 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
 } */
 
   return (
-    <ThemeProvider theme={theme} className="App">
+    <ThemeProvider theme={theme} /* className="App" */>
       <BrowserRouter>
         <CartProvider>
           <NavBar />
@@ -40,9 +40,9 @@ addDoc(collection(db, 'products'), {...element, img: imgURL} )
           <Routes>
             
 
-            <Route path="/" element={<ItemListContainer />} />
-
-            <Route path="/Excursiones" element={<ItemListContainer />} />
+{/*             <Route path="/" element={<ItemListContainer />} />
+ */}
+            <Route exact path="/tienda" element={<ItemListContainer />} />
 
 
             <Route path="/category/:CategoryId" element={<ItemListContainer />}
